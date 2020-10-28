@@ -1,4 +1,5 @@
 /**
+ * Manipulando código assíncrono através de callbacks
  * Obter um usuário
  * Obter o número de telefone de um usuário a partir do seu Id
  * Obter o endereço de um usuário a partir do seu Id
