@@ -40,18 +40,18 @@ Repositório onde registrarei todos os conhecimentos e aprendizados adquiridos n
 * As funções `.then()` serão executadas na ordem que estão dispostas no encadeamento, tendo por parametro o que retornou da anterior
 * Já as `.catch()` serão executadas quando um `reject()` for disparado, nesse caso, o encadeamento é pulado e cai no primeiro catch que encontrar, seu parametro é o erro retornado pelo reject.
 
-# :pencil: Js assíncrono (Async / Await)
+## :pencil: Js assíncrono (Async / Await)
 * Utilizando o Async / Await temos uma visualização mais intuitiva do que está sendo executado
 * A utilização deste não altera a performance do código (se for bem implementado)
 * Devemos adicionar à nossa função a palavra async ex: `async function main(){}` dessa forma ela retornará uma promise
 * Ao realizarmos todas as nossa operações assíncronas com `await`, podemos ter uma perda de performance pois o código irá esperar tudo ser executado um após o outro. (ex: async-await.js)
 * Podemos utilizar em casos cuja a execução de uma função não depende da outra o `Promise.all([...fuctions]);`, dessa forma as funções serão executadas simultaneamete (ex: async-await-faster.js)
 
-# :exclamation: Calcular tempo de execução
+## :exclamation: Calcular tempo de execução
 * Podemos utilizar do `console.time('tempo-banco')` && `console.endTime('tempo-banco')` para calcularmos o tempo que a execução do código entre estes 2 consoles demorou.
 * Ele retorna em ms
 
-# :pencil: Event Emitter
+## :pencil: Event Emitter
 * Usado para capturar eventos contínuos
 * Um exemplo é o browser, que deve identificar quando um usuário clica em um botão e a partir disso executar o código do qual que está ouvindo este evento dispõe (.onClick)
 * Utiliza o design pattern Observer/PubSub
@@ -61,7 +61,22 @@ Repositório onde registrarei todos os conhecimentos e aprendizados adquiridos n
 * Para criarmos eventos customizados podemos utilizar o método `.on()` da classe EventEmitter, que tem como primeiro parâmetro o nome do novo evento e no segundo a função que irá ser executada quando este evento for disparado.
 * Para dispararmos um evento customizado, basta utilizarmos o método `.emit()` da classe EventEmitter, que tem como o método .on(), o nome do evento como 1º parâmetro e no segundo, um valor que será enviado para a função que será executada ao receber o evento.
 
-# :exclamation: Loop infinitos com setInterval()
+## :exclamation: Loop infinitos com setInterval()
 * Podemos criar loops com a função nativa do js `setInterval(function, time)`
 * Como o setTimeout, a cada período de tempo definido no parâmetro time, a função será executada.
 * Bom para testar disparos de eventos ;)
+
+## :pencil: Listas
+
+### :pencil: For's
+* Temos disponível no node 3 tipos de loops for:
+- O for comum: `for (let i = 0; i < result.results.length - 1; i++) {`
+- O for in: `for (let i in result.results) {`
+Este elimina a necessidade da utilização da condicional e inicialização da variável, o i já é automaticamente instaciado com 0 e vai incrementando a medida que ocorrem as iterações na lista
+- E o for of `for (pessoa of result.results) {`
+Por vez, faz com que a cada iteração, o valor presente na posição do atual loop seja automaticamente atribuido na variável, nesse caso de nome "pessoa"
+
+### :pencil: forEach, Map && meuMap
+* o forEach, definido por `array.forEach((item) => {})` é uma função que basicamente tem o mesmo principio que o for of, a cada iteração do array, o elemento da posição fica disponibilizado no parâmetro da sua função de callback, onde podemos fazer o que desejarmos dentro dessa função.
+* o map tem como conceito um ponto diferente, ele retorna para uma variável, um novo array com os dados que foram predefinidos na sua função de callback. Sua definição é `const vetor = array.map((item) => item.data)`. O array original, assim como no forEach não é alterado.
+* Para criamos o "meuMap" que nada mais é que uma implementação manual do método `.map()`, utilizamos o `Array.prototype.meuMap` que é uma forma de acessarmos as propriedades internas do objeto Array e criamos métodos, alterarmos funções pré existentes e muito mais. Dessa forma, posteriormente somente é necessário executarmos a função, como se tivessemos utilizando qualquer outro método de array: `array.meuMap((item) => item.data)`

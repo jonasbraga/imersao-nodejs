@@ -1,5 +1,5 @@
 /**
- * Manipulando código assíncrono através de promisses (refactor do callback)
+ * Manipulando código assíncrono através de async / await (refactor do promises)
  * Obter um usuário
  * Obter o número de telefone de um usuário a partir do seu Id
  * Obter o endereço de um usuário a partir do seu Id
